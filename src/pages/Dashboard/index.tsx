@@ -3,6 +3,8 @@ import { ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 
+import { useTheme } from '../../hooks/theme';
+
 import {
   Container,
   Content,
@@ -31,6 +33,8 @@ import {
 const Dashboard: React.FC = () => {
   const [visibleBalance, setVisibleBalance] = useState(false);
 
+  const { theme } = useTheme();
+
   const navigate = useNavigation();
 
   const handleVisibleBalance = useCallback(() => {
@@ -42,7 +46,7 @@ const Dashboard: React.FC = () => {
   }, [navigate]);
 
   return (
-    <Container>
+    <Container theme={theme}>
       <Content>
         <Header>
           <TextHeader>Olá, Carlos</TextHeader>
@@ -62,7 +66,7 @@ const Dashboard: React.FC = () => {
             collapsable={false}
             contentContainerStyle={{ height: 680 }}
           >
-            <Card>
+            <Card onPress={() => navigate.navigate('credit-card')}>
               <HeaderCard>
                 <Icon name="credit-card" size={16} color="#555" />
                 <TextCardHeader>Cartão de Crédito</TextCardHeader>

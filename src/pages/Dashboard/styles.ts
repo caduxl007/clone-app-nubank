@@ -10,10 +10,15 @@ interface IShadowProps {
   visibleBalance: boolean;
 }
 
-export const Container = styled.View`
+interface ITheme {
+  theme: string;
+}
+
+export const Container = styled.View<ITheme>`
   flex: 1;
   justify-content: center;
-  background-color: #8a05be;
+  background-color: ${(props) =>
+    props.theme === 'light' ? '#8a05be' : 'black'};
 `;
 
 export const Content = styled.View`
@@ -52,7 +57,7 @@ export const IconStyle = styled(Feather)`
   margin-left: 7px;
 `;
 
-export const Card = styled.View`
+export const Card = styled(RectButton)`
   margin-bottom: 20px;
   border-radius: 5px;
   padding: 20px;
@@ -77,7 +82,8 @@ export const TextTitle = styled.Text`
 `;
 
 export const Shadow = styled.View<IShadowProps>`
-  background-color: ${(props) => (props.visibleBalance ? '#bbb' : '#fff')};
+  background-color: ${(props) =>
+    props.visibleBalance ? '#bbb' : 'transparent'};
 `;
 
 export const TextMoney = styled.Text<ICardProps>`

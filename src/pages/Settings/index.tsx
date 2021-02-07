@@ -3,12 +3,15 @@ import { ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 
+import { useTheme } from '../../hooks/theme';
+
 import qrCode from '../../images/qrcode.png';
 
 import {
   Container,
   Header,
   TextHeader,
+  ContentIcons,
   IconStyle,
   InfoAccount,
   QrCode,
@@ -23,16 +26,24 @@ import {
 
 const Settings: React.FC = () => {
   const navigate = useNavigation();
+  const { theme, themeMode } = useTheme();
 
   const handleNavigateBack = useCallback(() => {
     navigate.goBack();
   }, [navigate]);
 
+  const handleSetThemeMode = useCallback(() => {
+    themeMode();
+  }, [themeMode]);
+
   return (
-    <Container>
+    <Container theme={theme}>
       <Header>
         <TextHeader>Olá, Carlos</TextHeader>
-        <IconStyle onPress={handleNavigateBack} name="x" />
+        <ContentIcons>
+          <IconStyle onPress={handleSetThemeMode} name="sun" />
+          <IconStyle onPress={handleNavigateBack} name="x" />
+        </ContentIcons>
       </Header>
 
       <ScrollView

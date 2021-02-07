@@ -1,10 +1,15 @@
 import styled from 'styled-components/native';
 
-export const Container = styled.View`
+interface ITheme {
+  theme: string;
+}
+
+export const Container = styled.View<ITheme>`
   flex: 1;
   justify-content: center;
   align-items: center;
-  background-color: #8a05be;
+  background-color: ${(props) =>
+    props.theme === 'light' ? '#8a05be' : 'black'};
 `;
 
 export const Logo = styled.Image`
