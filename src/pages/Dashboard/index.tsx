@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import { ScrollView } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/Feather';
 
 import {
@@ -30,9 +31,15 @@ import {
 const Dashboard: React.FC = () => {
   const [visibleBalance, setVisibleBalance] = useState(false);
 
+  const navigate = useNavigation();
+
   const handleVisibleBalance = useCallback(() => {
     setVisibleBalance(!visibleBalance);
   }, [visibleBalance]);
+
+  const handleNavigateSettings = useCallback(() => {
+    navigate.navigate('settings');
+  }, [navigate]);
 
   return (
     <Container>
@@ -45,7 +52,7 @@ const Dashboard: React.FC = () => {
             ) : (
               <IconStyle onPress={handleVisibleBalance} name="eye-off" />
             )}
-            <IconStyle name="settings" />
+            <IconStyle onPress={handleNavigateSettings} name="settings" />
           </HeaderIcons>
         </Header>
         <ContentScroll>

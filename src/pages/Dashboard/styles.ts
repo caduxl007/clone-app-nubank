@@ -13,7 +13,7 @@ interface IShadowProps {
 export const Container = styled.View`
   flex: 1;
   justify-content: center;
-  background-color: rgb(109, 33, 119);
+  background-color: #8a05be;
 `;
 
 export const Content = styled.View`
@@ -47,7 +47,7 @@ export const IconStyle = styled(Feather)`
   font-size: 22px;
   border-radius: 50px;
   color: rgba(444, 444, 444, 0.9);
-  background-color: #932aa1;
+  background-color: rgba(255, 255, 255, 0.13);
   padding: 7px;
   margin-left: 7px;
 `;
@@ -134,7 +134,7 @@ export const CardOption = styled(RectButton)`
   border-radius: 3px;
   width: 80px;
   height: 80px;
-  background-color: #932aa1;
+  background-color: rgba(255, 255, 255, 0.13);
   padding: 5px;
   margin-right: 10px;
   justify-content: space-between;
