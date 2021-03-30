@@ -36,7 +36,7 @@ $ yarn android
 
 # Execute a aplicação no ios
 $ yarn ios
-
+ 
 ## Prontinho você terá acesso a aplicação!!! 
 ```
 
